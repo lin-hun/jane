@@ -1,0 +1,15 @@
+{
+  "name": "jane",
+  "version": "1.0.0",
+  "main": "lib/jane.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lin-hun/jane"
+  },
+  "author": "fusheng",
+  "license": "MIT",
+  "homepage": "https://github.com/lin-hun/jane"
+}
