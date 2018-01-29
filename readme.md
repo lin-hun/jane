@@ -1,7 +1,8 @@
 ## songs about jane
 
-## componenet
+## 在小程序api的基础上实现：
 
-## async await
+## 封装promise 实现async await
 
-## es6、es7
+## 支持npm
+
