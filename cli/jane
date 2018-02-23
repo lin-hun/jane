@@ -10,7 +10,7 @@ program
     .command('clean')
     .description('清空build目录')
     .action(()=>{
-      rm('./build/', function () { console.log('done'); });
+      rm('./build/', function () { console.log('已清空')})
     })
 
 program
