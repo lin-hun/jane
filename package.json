@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "lib/jane.js",
   "scripts": {
-
+    "doc": "jsdoc jane.js"
   },
   "repository": {
     "type": "git",
@@ -11,5 +11,10 @@
   },
   "author": "fusheng",
   "license": "MIT",
-  "homepage": "https://github.com/lin-hun/jane"
+  "homepage": "https://github.com/lin-hun/jane",
+  "devDependencies": {
+    "gulp-jsdoc3": "^1.0.1",
+    "jsdoc": "^3.5.5",
+    "gulp": "^4.0.0"
+  }
 }

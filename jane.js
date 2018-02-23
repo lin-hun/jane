@@ -1,3 +1,6 @@
+
 module.exports = {
-  // Utils:requ
+  init:'',
+  utils:require('./lib/utils'),
+  use:''
 }
