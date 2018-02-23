@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 let program = require('commander');
+let rm = require('rimraf')
 
 program
     .version('1.0.0','-v, --version')
@@ -9,7 +10,7 @@ program
     .command('clean')
     .description('清空build目录')
     .action(()=>{
-
+      rm('./build/', function () { console.log('done'); });
     })
 
 program
