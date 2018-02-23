@@ -20,7 +20,7 @@ program
     })
 
 program
-    .command('new')
+    .command('new <project>')
     .description('新建项目')
     .action(()=>{
 
