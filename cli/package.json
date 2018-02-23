@@ -1,0 +1,8 @@
+{
+  "name": "jane",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "dependencies": {
+    "commander": "^2.14.1"
+  }
+}

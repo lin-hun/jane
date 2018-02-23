@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+let program = require('commander');
+
+program
+    .version('1.0.0','-v, --version')
+    .option('-w, --watch', '监视目录改动')
+
+program
+    .command('clean')
+    .description('清空build目录')
+    .action(()=>{
+
+    })
+
+program
+    .command('build')
+    .description('编译项目')
+    .action(()=>{
+
+    })
+
+program
+    .command('new')
+    .description('新建项目')
+    .action(()=>{
+
+    })
+
+program
+    .command('update')
+    .description('更新')
+    .action(()=>{
+
+    })
+
+program.parse(process.argv)
