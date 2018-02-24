@@ -10,21 +10,21 @@ program
     .command('clean')
     .description('清空build目录')
     .action(()=>{
-      rm('./build/', function () { console.log('已清空')})
+      rm('./build/',  ()=>{ console.log('已清空')})
     })
 
 program
     .command('build')
     .description('编译项目')
     .action(()=>{
-
+      require('./lib/build')
     })
 
 program
     .command('new <project>')
     .description('新建项目')
     .action(()=>{
-
+      require('./lib/create')
     })
 
 program

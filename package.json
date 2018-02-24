@@ -1,5 +1,5 @@
 {
-  "name": "jane",
+  "name": "@linhun/jane",
   "version": "1.0.0",
   "main": "lib/jane.js",
   "scripts": {
