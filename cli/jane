@@ -23,8 +23,8 @@ program
 program
     .command('new <project>')
     .description('新建项目')
-    .action(()=>{
-      require('./lib/create')
+    .action((project)=>{
+      require('./lib/create')(project)
     })
 
 program
