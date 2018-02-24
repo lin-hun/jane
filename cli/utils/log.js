@@ -1,7 +1,7 @@
 let chalk = require('chalk')
 let color = {
-  error:chalk.bold.red,
-  info:chalk.bold.grey,
+  error:chalk.red,
+  info:chalk.grey,
   warn:chalk.keyword('orange')
 }
 function log(){
@@ -22,9 +22,17 @@ module.exports = {
     log.apply(this,arguments)
   },
   warn(){
-    log.apply(this,color.warn(arguments))
+    let r = Array.prototype.slice.call(arguments)
+    let arr = r.map(v=>{
+      return color.warn(v)
+    })
+    log.apply(this,arr)
   },
   error(){
-    log.apply(this,color.error(arguments))
+    let r = Array.prototype.slice.call(arguments)
+    let arr = r.map(v=>{
+      return color.error(v)
+    })
+    log.apply(this,arr)
   }
 }
