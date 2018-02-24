@@ -28,10 +28,10 @@ program
     })
 
 program
-    .command('update')
+    .command('upgrade')
     .description('更新')
     .action(()=>{
-
+      require('./lib/upgrade')
     })
 
 program.parse(process.argv)
