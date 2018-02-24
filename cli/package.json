@@ -1,7 +1,8 @@
 {
   "name": "jane",
   "version": "1.0.0",
-  "main": "./index.js",
+  "bin": "./jane",
+  "main": "./jane",
   "dependencies": {
     "commander": "^2.14.1",
     "rimraf": "^2.6.2"
