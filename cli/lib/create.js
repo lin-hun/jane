@@ -6,25 +6,20 @@ let path = require('path')
 
 module.exports = async (name)=>{
     try{
-      fs.mkdirSync(name)
-      log.info('创建目录成功')
+      // copy
+      if (fs.existsSync(name)) {
+        log.error('创建失败，目录已存在')
+        return
+      }
+      await fse.copy(path.join(__dirname,'../tpl/project'),path.resolve(`${name}`))
+      log.info(`创建目录成功`)
     }
     catch(err){
       log.error('创建目录失败')
       return
     }
-    try{
-      // copy
-      console.log(path.resolve())
-      await fse.copy('../tpl/',path.resolve(`${name}/tpl`))
-      log.info(`创建示例成功`)
-    }
-    catch(err){
-      log.error('创建示例失败')
-      return
-    }
     // npm install
     log.info(`安装依赖中`)
-    cmd("npm install",{stdio:[0,1,2]})
+    cmd(`cd ${path.resolve(name)};pwd; npm install`,{stdio:[0,1,2]})
 
 }
