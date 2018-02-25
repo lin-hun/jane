@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 let program = require('commander');
 let rm = require('rimraf')
-
+let utils = require('./utils/utils')
 program
-    .version('1.0.0','-v, --version')
+    .option('-v, --version', '显示版本号', () => {
+      console.log(utils.getVer())
+    })
     .option('-w, --watch', '监视目录改动')
 
 program

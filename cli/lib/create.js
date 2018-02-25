@@ -1,5 +1,5 @@
 let cmd = require('child_process').execSync
-let log = require('../utils/log')
+let log = require('../utils/utils').log
 let fs = require('fs')
 let fse = require('fs-extra')
 let path = require('path')
@@ -19,7 +19,7 @@ module.exports = async (name)=>{
       return
     }
     // npm install
-    log.info(`安装依赖中`)
+    log.info(`安装依赖中...`)
     cmd(`cd ${path.resolve(name)};pwd; npm install`,{stdio:[0,1,2]})
 
 }

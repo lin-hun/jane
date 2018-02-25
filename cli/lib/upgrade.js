@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let localV = require('../package').version
-let log = require('../utils/log')
+let log = require('../utils/utils').log
 let child_process = require('child_process');
 
 (async function(){
