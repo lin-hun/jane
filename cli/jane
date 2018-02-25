@@ -11,28 +11,30 @@ program
 program
     .command('clean')
     .description('清空build目录')
-    .action(()=>{
-      rm('./build/',  ()=>{ console.log('已清空')})
+    .action(() => {
+      rm('./build/', () => {
+        console.log('已清空')
+      })
     })
 
 program
     .command('build')
     .description('编译项目')
-    .action(()=>{
+    .action(() => {
       require('./lib/build')
     })
 
 program
     .command('new <project>')
     .description('新建项目')
-    .action((project)=>{
+    .action((project) => {
       require('./lib/create')(project)
     })
 
 program
     .command('upgrade')
     .description('更新')
-    .action(()=>{
+    .action(() => {
       require('./lib/upgrade')
     })
 
