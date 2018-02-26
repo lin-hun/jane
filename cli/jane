@@ -32,6 +32,13 @@ program
     })
 
 program
+    .command('page <page>')
+    .description('新建页面')
+    .action((project) => {
+      require('./lib/page')(project)
+    })
+
+program
     .command('upgrade')
     .description('更新')
     .action(() => {
@@ -39,3 +46,8 @@ program
     })
 
 program.parse(process.argv)
+
+// no args: show help
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
