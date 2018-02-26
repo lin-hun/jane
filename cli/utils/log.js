@@ -17,7 +17,15 @@ function log(){
   console.log.apply(this,r)
 }
 
+function custom(){
+
+}
 module.exports = {
+  tag(tag){
+    let r = Array.prototype.slice.call(arguments)
+    r[0] = chalk.green(r[0])
+    log.apply(this,r)
+  },
   info(){
     log.apply(this,arguments)
   },
