@@ -1,3 +1,11 @@
 {
-
+  "name": "define",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "jane build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
 }

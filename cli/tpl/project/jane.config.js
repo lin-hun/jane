@@ -1,10 +1,11 @@
 module.exports = {
   dest:'build',
   css: {
-    ext:'scss'
-    config: {}
+    ext:'scss',
+    config:{}
   },
   js: {
+    ext:'js',
     compiler: 'babel',
     config: {}
   },
