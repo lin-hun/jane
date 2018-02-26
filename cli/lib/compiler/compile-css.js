@@ -1,6 +1,6 @@
 let compiler = require('node-sass')
 let fs = require('fs')
-let utils = require('../utils/utils')
+let utils = require('../../utils/utils')
 let config = utils.getProjectConfig().css.config
 let log = utils.log
 let projectConfig = utils.getProjectConfig()

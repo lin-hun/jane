@@ -1,6 +1,6 @@
 let compiler = require('babel-core')
 let fs = require('fs')
-let utils = require('../utils/utils')
+let utils = require('../../utils/utils')
 let config = utils.getProjectConfig().js.config
 let log = utils.log
 
