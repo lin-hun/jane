@@ -9,7 +9,11 @@ module.exports = {
   js: {
     ext:'.js',
     compiler: 'babel',
-    config: {}
+    // https://babeljs.io/docs/usage/api/
+    config: {
+      presets:['env'],
+      plugins:["transform-async-to-generator"]
+    }
   },
   ignore:['node_modules','dist','.DB_store','.DS_Store']
 }

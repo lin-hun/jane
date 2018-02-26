@@ -6,6 +6,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "jsdoc": "^3.5.5"
+    "babel-preset-env": "^1.6.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1"
   }
 }
