@@ -1,3 +1,3 @@
-+ command page <name> & specified page template 
++ specified page template 
 + css&js dependence tree
 
