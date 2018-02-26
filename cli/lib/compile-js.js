@@ -4,7 +4,7 @@ let utils = require('../utils/utils')
 let config = utils.getProjectConfig().js.config
 let log = utils.log
 
-// option:https://github.com/sass/node-sass
+// option:https://babeljs.io/docs/usage/api/
 module.exports = (path) => {
   compiler.transformFile(path,config, (err, result) => {
     if (err) {
