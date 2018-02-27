@@ -10,10 +10,7 @@ log.tag('监听文件变动中')
 // analyse scss & js dependence before watch
 let sassGraph = require('sass-graph')
 let cssTree = sassGraph.parseDir('./src').index
-const depcruise = require('dependency-cruiser').cruise;
-let dependencies = depcruise(["src"]);
-console.log(dependencies.dependencies[0].dependencies)
-return
+
 function cssAnylase(path){
   let absolutePath = Path.resolve(path)
   if(cssTree[absolutePath]){

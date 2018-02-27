@@ -15,11 +15,25 @@ module.exports = {
     }
     return require(config)
   },
+  getProjectPkg(){
+    let config = Path.resolve('./package.json')
+    if(!fs.existsSync(config)){
+      return false
+    }
+    return require(config)
+  },
+  getDistPath(){
+    return this.getProjectConfig().dest || 'build'
+  },
+  getSrcPath(){
+    return this.getProjectConfig().src || 'src'
+  },
   write(){
     // rewrite
     return fs.outputFile.apply(this,arguments)
   },
   getOutputFile(str){
+    str = str.replace('node_modules','npm')
     return str.replace('src',this.getProjectConfig().dest)
   }
 }
