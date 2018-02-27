@@ -10,7 +10,10 @@ log.tag('监听文件变动中')
 // analyse scss & js dependence before watch
 let sassGraph = require('sass-graph')
 let cssTree = sassGraph.parseDir('./src').index
-
+const depcruise = require('dependency-cruiser').cruise;
+let dependencies = depcruise(["src"]);
+console.log(dependencies.dependencies[0].dependencies)
+return
 function cssAnylase(path){
   let absolutePath = Path.resolve(path)
   if(cssTree[absolutePath]){
@@ -21,8 +24,9 @@ function cssAnylase(path){
   return [absolutePath]
 }
 
-function jsAnylase(){
-
+function jsAnylase(path){
+  let absolutePath = Path.resolve(path)
+  return [absolutePath]
 }
 
 // todo js dependence analyse
@@ -35,8 +39,8 @@ watcher.on('change', path => {
     })
   }
   else if (ext === projectConfig.js.ext) {
-    // find relevant
-    // jsCompiler(path)
+    jsAnylase(path).forEach(v=>{
+      jsCompiler(v)
+    })
   }
-
 })
