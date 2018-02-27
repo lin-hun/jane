@@ -1,21 +1,42 @@
 let chokidar = require('chokidar')
 let Path = require('path')
-let projectConfig = require('../utils/utils')
+let utils = require('../utils/utils')
+let projectConfig = utils.getProjectConfig()
+let log = utils.log
 let jsCompiler = require('./compiler/compile-js')
 let cssCompiler = require('./compiler/compile-css')
 
+log.tag('监听文件变动中')
 // analyse scss & js dependence before watch
 let sassGraph = require('sass-graph')
-let result = sassGraph.parseDir('./scss')
+let cssTree = sassGraph.parseDir('./src').index
+
+function cssAnylase(path){
+  let absolutePath = Path.resolve(path)
+  if(cssTree[absolutePath]){
+    let r = cssTree[absolutePath].importedBy
+    r.push(absolutePath)
+    return r
+  }
+  return [absolutePath]
+}
+
+function jsAnylase(){
+
+}
+
 // todo js dependence analyse
 let watcher = chokidar.watch('./src')
-watcher.on('change',path=>{
+watcher.on('change', path => {
   let ext = Path.extname(path)
-  if(ext===projectConfig.css.ext){
-    cssCompiler(path)
+  if (ext === projectConfig.css.ext) {
+    cssAnylase(path).forEach((v)=>{
+      cssCompiler(v)
+    })
   }
-  else if(ext===projectConfig.js.ext){
-    jsCompiler(path)
+  else if (ext === projectConfig.js.ext) {
+    // find relevant
+    // jsCompiler(path)
   }
 
 })
