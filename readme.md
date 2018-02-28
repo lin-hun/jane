@@ -2,24 +2,24 @@
 ![cover](./cover.jpg)
 + scss、less、async、await、api的promise化处理
 
-## install
+## Install
 ```
 sudo npm install -g @linhun/jane
 ```
 
-## features
+## Features
 + .scss -> .wxss 
 + es6 -> es5
 + async、await
 + api promisify (todo) 
 
-## quickstart
+## Quickstart
 ``` sh
 jane new project
 ```
 
 
-## more usage
+## More usage
 ```
 jane --help
 ```
