@@ -3,12 +3,21 @@
 + scss、less、async、await、api的promise化处理
 
 ## install
-+ npm install -g @linhun/jane
+```
+npm install -g @linhun/jane
+```
+
 
 ## init project
-+ jane new <project>
+```
+jane new <project>
+```
+
 
 ## more usage
-+ jane --help
+```
+jane --help
+```
+
 
 
