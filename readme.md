@@ -13,10 +13,15 @@ sudo npm install -g @linhun/jane
 + async、await
 
 ## Quickstart
+init project
 ``` sh
 jane new project
 ```
-
+build project
+``` sh
+jane build // on production
+jane build -w // watch build on develop
+```
 
 ## More usage
 ```
