@@ -1,6 +1,5 @@
+let api = require('./lib/apiPromisify')
+let jane = {}
+Object.assign(jane,api)
 
-module.exports = {
-  init:'',
-  utils:require('./lib/utils'),
-  use:''
-}
+module.exports = jane
