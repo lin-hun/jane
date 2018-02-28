@@ -5,6 +5,10 @@ let config = utils.getProjectConfig().js.config
 let log = utils.log
 let Path = require('path')
 let modulesDir = 'node_modules'
+// fix infinite loop
+let jsTree = {
+
+}
 
 function existInPkg(lib){
   let pkg = utils.getProjectPkg()
@@ -15,7 +19,6 @@ function findMainJs(modules){
   let pkg = require(Path.resolve(`${modulesDir}/${modules}/package.json`))
   let main = `${modulesDir}/${modules}/${pkg.main||'./index.js'}`
   main = utils.jsRequire(main)
-  console.log(main)
   return main
 }
 
@@ -59,6 +62,10 @@ function analyse(code,from){
   })
 }
 function compiler(from){
+  // fix infinite require loop
+  if(jsTree[from]){
+    return
+  }
   babel.transformFile(from,config, (err, result) => {
     if (err) {
       log.error(err)
@@ -67,6 +74,7 @@ function compiler(from){
     result.code = analyse(result.code,from)
     // compile to .js
     let to = utils.getOutputFile(from)
+    jsTree[from] = to
     // write in
     utils.write(to, result.code).then(v => {
       log.tag('写入',`${to}`)
