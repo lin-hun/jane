@@ -17,7 +17,7 @@ module.exports = (path) => {
     path = utils.getOutputFile(path.replace(projectConfig.css.ext, '.wxss'))
     // write in
     utils.write(path, result.css).then(v => {
-      log.tag('写入',`${utils.getOutputFile(path)}`)
+      log.tag('写入css',`${utils.getOutputFile(path)}`)
     }).catch((err) => {
       log.error(err)
     })

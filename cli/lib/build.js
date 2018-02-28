@@ -32,7 +32,7 @@ function walk(target) {
       // copy
       let destPath = utils.getOutputFile(target)
       fs.copy(target,destPath)
-      log.tag('复制',`${destPath}`)
+      log.tag('复制文件',`${destPath}`)
     }
     return
   }

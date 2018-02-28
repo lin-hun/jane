@@ -75,9 +75,13 @@ function compiler(from){
     // compile to .js
     let to = utils.getOutputFile(from)
     jsTree[from] = to
-    // write in
+    // write in js or node_modules
     utils.write(to, result.code).then(v => {
-      log.tag('写入',`${to}`)
+      let tag = '写入js'
+      if(from.indexOf(modulesDir)>-1){
+        tag = '复制依赖'
+      }
+      log.tag(tag,`${to}`)
     }).catch((err) => {
       log.error(err)
     })
