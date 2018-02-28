@@ -13,8 +13,10 @@ function existInPkg(lib){
 }
 function findMainJs(modules){
   let pkg = require(Path.resolve(`${modulesDir}/${modules}/package.json`))
-  let main = pkg.main||'./index.js'
-  return `${modulesDir}/${modules}/${main}`
+  let main = `${modulesDir}/${modules}/${pkg.main||'./index.js'}`
+  main = utils.jsRequire(main)
+  console.log(main)
+  return main
 }
 
 function analyse(code,from){
@@ -27,8 +29,10 @@ function analyse(code,from){
       }
     }
     else if(lib[0]==='.'){ // require('./utils/test')
+      // compation
       if(from.indexOf('node_modules')>-1){
-        compiler(Path.join(Path.dirname(from),lib))
+        let file = utils.jsRequire(Path.join(Path.dirname(from),lib))
+        compiler(file)
       }
     }
     else if(lib.indexOf('/') === -1||lib.indexOf('/') === lib.length - 1 ){

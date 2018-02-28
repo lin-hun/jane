@@ -3,46 +3,79 @@ let fs = require('fs-extra')
 
 
 module.exports = {
-  log:require('./log'),
-  getVer(){
-    let pkg = Path.join(__dirname,'../package.json')
+  log: require('./log'),
+  getVer() {
+    let pkg = Path.join(__dirname, '../package.json')
     return require(pkg).version
   },
-  getProjectConfig(){
+  getProjectConfig() {
     let config = Path.resolve('./jane.config.js')
-    if(!fs.existsSync(config)){
+    if (!fs.existsSync(config)) {
       return false
     }
     return require(config)
   },
-  getProjectPkg(){
+  getProjectPkg() {
     let config = Path.resolve('./package.json')
-    if(!fs.existsSync(config)){
+    if (!fs.existsSync(config)) {
       return false
     }
     return require(config)
   },
-  getDistPath(){
+  getDistPath() {
     return this.getProjectConfig().dest || 'build'
   },
-  getSrcPath(){
+  getSrcPath() {
     return this.getProjectConfig().src || 'src'
   },
-  getModulesPath(){
+  getModulesPath() {
     return 'node_modules'
   },
-  write(){
+  write() {
     // rewrite
-    return fs.outputFile.apply(this,arguments)
+    return fs.outputFile.apply(this, arguments)
   },
-  getOutputFile(str){
+  getOutputFile(str) {
     let dest = this.getDistPath()
     let src = this.getSrcPath()
     let modules = this.getModulesPath()
-    if(str.indexOf(modules)>-1){
+    if (str.indexOf(modules) > -1) {
       str = `${dest}/${str}`
     }
-    str = str.replace(modules,'npm')
-    return str.replace(src,dest)
+    str = str.replace(modules, 'npm')
+    return str.replace(src, dest)
+  },
+  isFile(path) {
+    let r = false
+    try{
+      r = fs.lstatSync(path)&&fs.lstatSync(path).isFile()
+    }
+    catch(err){
+
+    }
+    return r
+  },
+  jsRequire(path){
+    if(this.isFile(path)){
+      return path
+    }
+    else if(this.isFile(`${path}.js`)){
+      return `${path}.js`
+    }
+    else if(this.isFile(`${path}/index.js`)){
+      return `${path}/index.js`
+    }
+  },
+  requireFileCHK(a, b) {
+    let arr = Array.prototype.slice.call(arguments)
+    let r = ''
+    for (let i = 0; i < arr.length; i++) {
+      if (fs.lstatSync(arr[i])&&fs.lstatSync(arr[i]).isFile()) {
+        r = arr[i]
+        break
+      }
+
+    }
+    return r
   }
 }
