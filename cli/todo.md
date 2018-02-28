@@ -1,4 +1,3 @@
-+ specified page template 
 + js dependence tree on watch
-+ image compression
++ image compression (or image size warning???)
 + promise polyfill
