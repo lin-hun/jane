@@ -14,25 +14,21 @@ function existInPkg(lib){
 function findMainJs(modules){
   let pkg = require(Path.resolve(`${modulesDir}/${modules}/package.json`))
   let main = pkg.main||'./index.js'
-  return Path.resolve(`${modulesDir}/${modules}/${main}`)
+  return `${modulesDir}/${modules}/${main}`
 }
 
 function analyse(code,from){
-  code.replace(/require\(['"]([\w\d_\-\.\/\@]+)['"]\)/ig,(match,lib)=>{
-    if(Path.isAbsolute(lib)){
-      // if path in src directory => solve
-      // require('/user/work/project/a.js')
+  return code.replace(/require\(['"]([\w\d_\-\.\/\@]+)['"]\)/ig,(match,lib)=>{
+    if(Path.isAbsolute(lib)){// if path in src directory => solve  exp: require('/user/work/project/a.js')
       let absoluteSrc = Path.join(__dirname,utils.getSrcPath())
       let absoluteDist = Path.join(__dirname,utils.getDistPath())
       if(lib.indexOf(absoluteSrc)===0){
         lib = lib.replace(absoluteSrc,absoluteDist)
       }
     }
-    else if(lib[0]==='.'){
-      // require('./utils/test')
-      // todo
+    else if(lib[0]==='.'){ // require('./utils/test')
       if(from.indexOf('node_modules')>-1){
-        compiler(`${modulesDir}/lib`)
+        compiler(Path.join(Path.dirname(from),lib))
       }
     }
     else if(lib.indexOf('/') === -1||lib.indexOf('/') === lib.length - 1 ){
@@ -49,31 +45,27 @@ function analyse(code,from){
       if(!fs.existsSync(main)){
         log.error(`${main}不存在，请确认是否安装`)
       }
-      log.info(main)
+
       // replace 'babel-core' => ./npm
       // todo path replace on node_module & src
-
-      // let relative = Path.relative('src',)
-      // lib = lib.replace()
-      // ismodules
+      lib = Path.relative(utils.getOutputFile(from),utils.getOutputFile(main))
       compiler(main)
     }
-    log.info(lib)
-    return lib
+    return `require('${lib}')`
   })
 }
-function compiler(path){
-  babel.transformFile(path,config, (err, result) => {
+function compiler(from){
+  babel.transformFile(from,config, (err, result) => {
     if (err) {
       log.error(err)
       return
     }
-    analyse(result.code,path)
+    result.code = analyse(result.code,from)
     // compile to .js
-    path = utils.getOutputFile(path)
+    let to = utils.getOutputFile(from)
     // write in
-    utils.write(path, result.code).then(v => {
-      log.tag('写入',`${utils.getOutputFile(path)}`)
+    utils.write(to, result.code).then(v => {
+      log.tag('写入',`${to}`)
     }).catch((err) => {
       log.error(err)
     })

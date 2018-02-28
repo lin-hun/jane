@@ -28,12 +28,21 @@ module.exports = {
   getSrcPath(){
     return this.getProjectConfig().src || 'src'
   },
+  getModulesPath(){
+    return 'node_modules'
+  },
   write(){
     // rewrite
     return fs.outputFile.apply(this,arguments)
   },
   getOutputFile(str){
-    str = str.replace('node_modules','npm')
-    return str.replace('src',this.getProjectConfig().dest)
+    let dest = this.getDistPath()
+    let src = this.getSrcPath()
+    let modules = this.getModulesPath()
+    if(str.indexOf(modules)>-1){
+      str = `${dest}/${str}`
+    }
+    str = str.replace(modules,'npm')
+    return str.replace(src,dest)
   }
 }
