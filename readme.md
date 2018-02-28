@@ -11,7 +11,6 @@ sudo npm install -g @linhun/jane
 + .scss -> .wxss 
 + es6 -> es5
 + async、await
-+ api promisify (todo) 
 
 ## Quickstart
 ``` sh
@@ -23,6 +22,11 @@ jane new project
 ```
 jane --help
 ```
+## Todo 
++ api promisify (todo) 
++ demo
++ doc
+
 ## License
 MIT
 
