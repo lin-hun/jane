@@ -32,16 +32,14 @@ function analyse(code,from){
       }
     }
     else if(lib[0]==='.'){ // require('./utils/test')
-      // compation
+      // solve modules require file
       if(from.indexOf('node_modules')>-1){
         let file = utils.jsRequire(Path.join(Path.dirname(from),lib))
         compiler(file)
       }
     }
     else if(lib.indexOf('/') === -1||lib.indexOf('/') === lib.length - 1 ){
-      // npm
-      // require('babel-present-env')
-      // todo require('babel-core/index')
+      // require('module')
       if(!existInPkg(lib)){
         log.error(`未能够在package.json里找到${lib},请确认配置是否正确`)
       }
@@ -52,11 +50,19 @@ function analyse(code,from){
       if(!fs.existsSync(main)){
         log.error(`${main}不存在，请确认是否安装`)
       }
-
-      // replace 'babel-core' => ./npm
-      // todo path replace on node_module & src
+      // 'modules' => ./npm/modules/index.js
       lib = Path.relative(utils.getOutputFile(from),utils.getOutputFile(main))
       compiler(main)
+    }
+    else if(lib.indexOf('/') >-1&&lib.indexOf('/') !==0){
+      // require('babel-core/index')
+      let path = utils.jsRequire(`${modulesDir}/${lib}`)
+      if(!path){
+        log.error(`未能够在${modulesDir}里找到${lib},请确认是否安装`)
+        return lib
+      }
+      lib = Path.relative(utils.getOutputFile(from),utils.getOutputFile(path))
+      compiler(path)
     }
     return `require('${lib}')`
   })

@@ -65,17 +65,6 @@ module.exports = {
     else if(this.isFile(`${path}/index.js`)){
       return `${path}/index.js`
     }
-  },
-  requireFileCHK(a, b) {
-    let arr = Array.prototype.slice.call(arguments)
-    let r = ''
-    for (let i = 0; i < arr.length; i++) {
-      if (fs.lstatSync(arr[i])&&fs.lstatSync(arr[i]).isFile()) {
-        r = arr[i]
-        break
-      }
-
-    }
-    return r
+    return false
   }
 }
