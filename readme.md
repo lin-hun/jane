@@ -7,10 +7,14 @@
 sudo npm install -g @linhun/jane
 ```
 
+## features
++ .scss -> .wxss 
++ es6 -> es5
++ async、await
 
-## init project
-```
-jane new <project>
+## Quickstart
+``` sh
+jane new project
 ```
 
 
@@ -18,6 +22,7 @@ jane new <project>
 ```
 jane --help
 ```
-
+## License
+MIT
 
 
