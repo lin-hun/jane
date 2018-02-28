@@ -4,7 +4,7 @@
 
 ## install
 ```
-npm install -g @linhun/jane
+sudo npm install -g @linhun/jane
 ```
 
 
