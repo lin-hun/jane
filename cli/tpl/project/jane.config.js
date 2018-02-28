@@ -1,5 +1,8 @@
 module.exports = {
   dest:'build',
+  tpl:{
+    page:'' // must be directory
+  }
   css: {
     ext:'.scss',
     compiler: 'scss',

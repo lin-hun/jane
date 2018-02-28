@@ -45,6 +45,16 @@ module.exports = {
     str = str.replace(modules, 'npm')
     return str.replace(src, dest)
   },
+  isDir(path){
+    let r = false
+    try{
+      r = fs.lstatSync(path)&&fs.lstatSync(path).isDirectory()
+    }
+    catch(err){
+
+    }
+    return r
+  },
   isFile(path) {
     let r = false
     try{
