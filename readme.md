@@ -68,7 +68,7 @@ jane --help
 
 ```
 ## Todo 
-+ doc
++ image minify
 
 ## License
 MIT
