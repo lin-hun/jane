@@ -9,10 +9,9 @@ sudo npm install -g @linhun/jane
 
 ## Features
 + .scss -> .wxss 
-+ es6 -> es5
++ es6 -> es5, support #sourcemap
 + async、await
-+ 支持js sourcemap
-+ build -w .scss支持依赖检查
++ support build -w, scss dependence chk
 
 ## Quickstart
 init project
