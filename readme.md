@@ -47,12 +47,27 @@ module.exports = {
 }
 ```
 ## More usage
-```
 jane --help
 ```
+  Usage: jane [options] [command]
+  
+  Options:
+
+    -v, --version  显示版本号
+    -w, --watch    监视目录改动
+    -h, --help     output usage information
+
+
+  Commands:
+
+    clean          清空build目录
+    build          编译项目
+    new <project>  新建项目
+    page <page>    新建页面
+    upgrade        更新
+
+```
 ## Todo 
-+ api promisify (todo) 
-+ demo
 + doc
 
 ## License
