@@ -11,6 +11,8 @@ sudo npm install -g @linhun/jane
 + .scss -> .wxss 
 + es6 -> es5
 + async、await
++ 支持js sourcemap
++ build -w .scss支持依赖检查
 
 ## Quickstart
 init project
