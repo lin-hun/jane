@@ -73,6 +73,7 @@ jane --help
 ```
 ## Todo 
 + image minify
++ 迁移文档
 
 ## License
 MIT
