@@ -3,9 +3,11 @@
 + scss、less、async、await、api的promise化处理
 
 ## Install
+cli 
 ```
-sudo npm install -g @linhun/jane
+sudo npm install -g @linhun/jane-cli
 ```
+
 
 ## Features
 + .scss -> .wxss 
@@ -47,6 +49,7 @@ module.exports = {
   ignore:['node_modules','dist','.DB_store','.DS_Store'] // these files could be ignored by compiler
 }
 ```
+
 ## More usage
 jane --help
 ```

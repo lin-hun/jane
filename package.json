@@ -1,6 +1,6 @@
 {
   "name": "@linhun/jane",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-beta.1",
   "main": "./jane.js",
   "scripts": {
     "doc": "jsdoc jane.js"
