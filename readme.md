@@ -3,12 +3,10 @@
 + scss、less、async、await、api的promise化处理
 
 ## Install
-cli 
+lib install
 ```
-sudo npm install -g @linhun/jane-cli
+npm install --save @linhun/jane
 ```
-
-
 ## Features
 + .scss -> .wxss 
 + es6 -> es5, support #sourcemap
@@ -16,6 +14,10 @@ sudo npm install -g @linhun/jane-cli
 + support build -w, scss dependence chk
 
 ## Quickstart
+cli install
+```
+sudo npm install -g @linhun/jane-cli
+```
 init project
 ``` sh
 jane new project
