@@ -76,6 +76,7 @@ jane --help
 ## Todo 
 + image minify
 + 迁移文档
++ component plugins???
 
 ## License
 MIT
