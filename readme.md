@@ -2,18 +2,18 @@
 ![cover](./cover.jpg)
 + scss、less、async、await、api的promise化处理
 
-## Install
+## 安装
 lib install
 ```
 npm install --save @linhun/jane
 ```
-## Features
+## 功能
 + .scss -> .wxss 
 + es6 -> es5, support #sourcemap
 + async、await
 + support build -w, scss dependence chk
 
-## Quickstart
+## 快速开始
 cli install
 ```
 sudo npm install -g @linhun/jane-cli
@@ -52,7 +52,7 @@ module.exports = {
 }
 ```
 
-## More usage
+## 更多用法
 jane --help
 ```
   Usage: jane [options] [command]
@@ -78,6 +78,8 @@ jane --help
 + 迁移文档
 + component plugins???
 
+## 谁在用
++ 掌上链家
 ## License
 MIT
 
