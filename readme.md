@@ -51,7 +51,8 @@ module.exports = {
   ignore:['node_modules','dist','.DB_store','.DS_Store'] // these files could be ignored by compiler
 }
 ```
-
+## 插件
++ [jane-async](https://github.com/lin-hun/jane-async)
 ## 更多用法
 jane --help
 ```

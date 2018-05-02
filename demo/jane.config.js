@@ -14,8 +14,7 @@ module.exports = {
     compiler: 'babel',
     // https://babeljs.io/docs/usage/api/
     config: {
-      presets:['env'],
-      plugins:["transform-async-to-generator"]
+      presets:['env']
     }
   },
 

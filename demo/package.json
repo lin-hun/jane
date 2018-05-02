@@ -1,16 +1,21 @@
 {
-    "name": "demo",
-    "version": "1.0.0",
-    "scripts": {
-        "build": "jane build"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "@linhun/jane": "^1.0.0-alpha.1"
-    },
-    "devDependencies": {
-        "babel-preset-env": "^1.6.1",
-        "babel-plugin-transform-async-to-generator": "^6.24.1",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0"
-    }
+  "name": "demo",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "jane build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@linhun/jane": "^1.0.0-alpha.1",
+    "jane-async": "^1.0.3",
+    "babel-polyfill": "^6.26.0",
+    "wepy": "^1.7.1",
+    "wepy-async-function": "^1.4.6",
+    "wepy-cli": "^1.7.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
 }

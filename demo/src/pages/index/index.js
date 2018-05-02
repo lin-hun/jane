@@ -1,7 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var b = new Promise((resolve,reject)=>{
+  resolve('sssss')
 
+})
+var a = async function(){
+  console.log('sss')
+}
+a()
 Page({
   data: {
     motto: 'Hello World',
