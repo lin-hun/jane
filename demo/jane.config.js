@@ -14,7 +14,8 @@ module.exports = {
     compiler: 'babel',
     // https://babeljs.io/docs/usage/api/
     config: {
-      presets:['env']
+      presets:['env'],
+      plugins: ["transform-node-env-inline"]
     }
   },
 

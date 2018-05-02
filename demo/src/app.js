@@ -2,6 +2,8 @@
 require('jane-async')
 App({
   onLaunch: function () {
+    const env = process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+    console.log(process.env.NODE_ENV)
     var a = async function(){
     }
     // 展示本地存储能力

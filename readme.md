@@ -53,6 +53,31 @@ module.exports = {
 ```
 ## 插件
 + [jane-async](https://github.com/lin-hun/jane-async)
+## 环境判断
++ 安装
+```
+  npm i --save babel-plugin-transform-node-env-inline
+```
++ 引入
+```
+js: {
+    ext:'.js',
+    compiler: 'babel',
+    // https://babeljs.io/docs/usage/api/
+    config: {
+      presets:['env'],
+      plugins: ["transform-node-env-inline"]
+    }
+  }
+```
++ 使用
+```
+  NODE_ENV=production jane build
+```
++ 代码中
+```
+  console.log(process.env.NODE_ENV)
+```
 ## 更多用法
 jane --help
 ```

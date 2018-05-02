@@ -2,16 +2,16 @@
   "name": "demo",
   "version": "1.0.0",
   "scripts": {
-    "build": "jane build"
+    "build": "jane build",
+    "dev-build": "NODE_ENV=hahahha jane build -w",
+    "prod-build":"NODE_ENV=production jane build"
   },
   "license": "MIT",
   "dependencies": {
     "@linhun/jane": "^1.0.0-alpha.1",
-    "jane-async": "^1.0.3",
+    "babel-plugin-transform-node-env-inline": "^0.4.0",
     "babel-polyfill": "^6.26.0",
-    "wepy": "^1.7.1",
-    "wepy-async-function": "^1.4.6",
-    "wepy-cli": "^1.7.1"
+    "jane-async": "^1.0.3"
   },
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
