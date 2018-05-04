@@ -5,7 +5,7 @@ module.exports = {
   },
   css: {
     ext:'.scss',
-    compiler: 'scss',
+    compiler: require('jane-sass'),
     // ref:https://github.com/sass/node-sass
     config:{}
   },
