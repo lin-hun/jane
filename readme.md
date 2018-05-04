@@ -53,7 +53,7 @@ module.exports = {
 ```
 ## 插件
 + [jane-async](https://github.com/lin-hun/jane-async)
-+ [jane-sass](https://github.com/lin-hun/jane-async)
++ [jane-sass](https://www.npmjs.com/package/jane-sass)
 ## 环境判断
 + 安装
 ```
