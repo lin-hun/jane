@@ -30,14 +30,15 @@ jane build -w // watch build on develop
 config file
 ```javascript
 module.exports = {
-  dest:'build', // build dir
-  tpl:{ // custom page dir
+  dest:'build',
+  tpl:{
     page:'' // must be directory
   },
   css: {
-    ext:'.scss', // css ext
-    compiler: 'scss', // define css compiler
-    config:{} // css compile by node-sass. option is same as:https://github.com/sass/node-sass
+    ext:'.scss',
+    compiler: require('jane-sass'),
+    // ref:https://github.com/sass/node-sass
+    config:{}
   },
   js: {
     ext:'.js',
@@ -45,10 +46,11 @@ module.exports = {
     // https://babeljs.io/docs/usage/api/
     config: {
       presets:['env'],
-      plugins:["transform-async-to-generator"] // babel-plugins 
+      plugins: ["transform-node-env-inline"]
     }
   },
-  ignore:['node_modules','dist','.DB_store','.DS_Store'] // these files could be ignored by compiler
+
+  ignore:['node_modules','dist','.DB_store','.DS_Store']
 }
 ```
 ## 插件
