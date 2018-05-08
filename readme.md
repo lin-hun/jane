@@ -104,8 +104,7 @@ jane --help
 ```
 ## Todo 
 + image minify
-+ 迁移文档
-+ component plugins???
+
 
 ## 谁在用
 + 掌上链家
