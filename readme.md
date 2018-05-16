@@ -8,8 +8,8 @@ lib install
 npm install --save @linhun/jane
 ```
 ## 功能
-+ .scss -> .wxss 
-+ es6 -> es5, support #sourcemap
++ .scss、.styl、.less -> .wxss 
++ es6 -> es5, support babel plugins #sourcemap
 + async、await
 + support build -w, scss dependence chk
 
