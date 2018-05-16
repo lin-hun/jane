@@ -11,7 +11,7 @@ npm install --save @linhun/jane
 + .scss、.styl、.less -> .wxss 
 + es6 -> es5, support babel plugins #sourcemap
 + async、await
-+ support build -w, scss dependence chk
++ support build watch
 
 ## 快速开始
 cli install
