@@ -1,11 +1,15 @@
 //app.js
+require('jane-async')
 App({
   onLaunch: function () {
+    const env = process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+    console.log(process.env.NODE_ENV)
+    var a = async function(){
+    }
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
@@ -15,7 +19,7 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo']) {
+        if (res.authSetting['scope.useqrInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {

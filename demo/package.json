@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "jane build",
+    "dev-build": "NODE_ENV=hahahha jane build -w",
+    "prod-build": "NODE_ENV=production jane build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@linhun/jane": "^1.0.0-alpha.1",
+    "babel-plugin-transform-node-env-inline": "^0.4.0",
+    "babel-polyfill": "^6.26.0",
+    "jane-async": "^1.0.3",
+    "jane-sass": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
+}
